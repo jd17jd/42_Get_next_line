@@ -6,7 +6,7 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 13:39:56 by jvivas-g          #+#    #+#             */
-/*   Updated: 2023/09/29 22:53:53 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2023/10/04 00:42:29 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ size_t	ft_strlen(const char *s)
  * @param s2 The string to added to "s1".
  * @return The new string. NULL if the memory allocation fails
 */
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char *s1, char *s2)
 {
 	char	*res;
 	int		i;
