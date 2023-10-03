@@ -6,7 +6,7 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 16:18:06 by jvivas-g          #+#    #+#             */
-/*   Updated: 2023/10/04 01:20:36 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2023/10/04 01:34:05 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 /* FUNCIONES AUXILIARES */
 
 /**
- * Me devuelve una linea hasta q encuentre el salto de linea
- * RECORDAR PONER STATIC
+ * @param str String de caracteres 
+ * @return Me devuelve una linea hasta q encuentre el salto de linea
 */
 char	*ft_get_line(char *str)
 {
@@ -99,8 +99,6 @@ char	*get_next_line(int fd)
 
     if (fd < 0 || BUFFER_SIZE < 0) /* Comprobamos fichero abierto correctamente y bs postivo para tener un minimo d lineas a leer */
         return (0);
-    /* Estado: Tenemos el "cursor" (read) en el inicio del todo:
-        Empezamos a leer caracteres
-    */
+	
     return (line);
 }
