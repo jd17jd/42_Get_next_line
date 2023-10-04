@@ -6,7 +6,7 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 16:18:24 by jvivas-g          #+#    #+#             */
-/*   Updated: 2023/10/03 23:27:25 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2023/10/04 13:41:55 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,21 @@
 /* BUFFER_SIZE representa la cantidad de bytes que se leerán o se almacenarán en cada iteración de la función get_next_line().
 Determina cuántos caracteres se leerán en cada llamada a la función para construir una línea completa. */
 #ifndef BUFFER_SIZE
-# define BUFFER_SIZE 42
+# define BUFFER_SIZE 22
 #endif
 
-/* ACORDARSE DE QUITAR GET_LINE */
-char *ft_get_line(char *str);
+
+char    *ft_get_line(char *str);
+char	*ft_append(int fd, char *stash);
+char *ft_short(char *stash);
 char	*get_next_line(int fd);
 
 /* FUNCIONES AUXILIARES */
-
 size_t	ft_strlen(const char *s);
 char	*ft_strjoin(char const *s1, char const *s2);
-void	*ft_memchr(const void *s, int c, size_t n);
 char	*ft_strchr(const char *s, int c);
 void	*ft_calloc(size_t bytes);
+void	*ft_memcpy(void *dst, const void *src, size_t n);
+void	*ft_memmove(void *dst, const void *src, size_t len);
 
 #endif

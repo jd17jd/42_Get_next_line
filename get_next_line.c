@@ -6,13 +6,11 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 16:18:06 by jvivas-g          #+#    #+#             */
-/*   Updated: 2023/10/04 01:34:05 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2023/10/04 13:13:55 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
-/* FUNCIONES AUXILIARES */
 
 /**
  * @param str String de caracteres 
@@ -46,6 +44,7 @@ char	*ft_get_line(char *str)
 	return (result);
 }
 
+
 /**
  * @param fd Descriptor desde donde leer para almacenar en nuestra variable auxiliar
  * @param stash Variable estatica para concatenar con o ue hagamos
@@ -53,8 +52,8 @@ char	*ft_get_line(char *str)
 */
 char	*ft_append(int fd, char *stash)
 {
-	char *aux[BUFFER_SIZE + 1]; /* Variable para concatenarla con lo que ya tengamos */
-	int read_bytes; /* Me devuelve el resultado de cuanto bytes ha leido */
+	char aux[BUFFER_SIZE + 1]; /* Variable para almacenar la lectura */
+	int read_bytes; /* Me devuelve el resultado de cuántos bytes ha leído */
 
 	read_bytes = 1;
 	while (!ft_strchr(aux, '\n') && read_bytes != 0)
@@ -74,18 +73,13 @@ char	*ft_append(int fd, char *stash)
 */
 char *ft_short(char *stash) {
 	char *result;
-	/* Aqui quiero llamar a la funcion de get_line para que me devuelva la linea hasta el salto de linea
-	Llamar a a funcion que me encuentre el sato de linea en todo eso para quedarme con la posicion
-	y modificar la stash para que se quede con lo sobrante después del slto de linea */
+
+	result = ft_get_line(stash); /* Me duvuelve la linea hasya el \n */
+	stash = ft_memmove(stash, stash + ft_strlen(result), ft_strlen(stash) - ft_strlen(result) + 1);
+	/* Modifico stash y hago que empiece para después del \n */
+	
 	return (result);
 }
-
-/*
-FUNCINES QUE NECESITO:
-CONCATENAR STRINGS: Para los casos en los que se me quede algo + lo nuevo
-BUSCAR UN CARACTER: Para encontrar el caracter \n y sacar esa linea por pantalla
-LONGITUD DE UN STRING: Para restarsela de la longitud total y que se pueda continuar después del \n
-*/
 
 
 /**
@@ -99,6 +93,9 @@ char	*get_next_line(int fd)
 
     if (fd < 0 || BUFFER_SIZE < 0) /* Comprobamos fichero abierto correctamente y bs postivo para tener un minimo d lineas a leer */
         return (0);
-	
+	stash = ft_append(fd, stash);
+	if (stash == NULL)
+		return (NULL);
+	line = ft_short(stash);
     return (line);
 }
