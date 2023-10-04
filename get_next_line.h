@@ -6,7 +6,7 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 16:18:24 by jvivas-g          #+#    #+#             */
-/*   Updated: 2023/10/04 13:41:55 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2023/10/04 20:06:27 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ Determina cuántos caracteres se leerán en cada llamada a la función para cons
 
 char    *ft_get_line(char *str);
 char	*ft_append(int fd, char *stash);
-char *ft_short(char *stash);
+char    *ft_short(char *stash);
+char	*ft_new_left_str(char *left_str);
 char	*get_next_line(int fd);
 
 /* FUNCIONES AUXILIARES */
