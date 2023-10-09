@@ -6,7 +6,7 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 16:44:04 by jvivas-g          #+#    #+#             */
-/*   Updated: 2023/10/08 21:26:52 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2023/10/09 16:42:59 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,10 @@ int main() {
 	printf("%s", line);
 	line = get_next_line(fd2);
 	printf("%s", line);
+	line = get_next_line(fd2);
+	printf("%s", line);
+	line = get_next_line(fd2);
+	printf("%s", line);
 	printf("\n");
 
 	line = get_next_line(fd3);
@@ -56,8 +60,8 @@ int main() {
 	printf("\n");
 	
 	// char	buf[100]; //Buffer donde se va a guardar lo leido
-	// char	*result;
-	// char 	*test;
+	char	*result;
+	char 	*test;
 	//char	*linea;
 	// ssize_t	n_bytes;
 	
@@ -68,9 +72,10 @@ int main() {
  	// result = ft_get_line(buf);
 	// printf("PRUEBA GET_LINE:\n%s", result); //FUNCIONA
 	// printf("\n");
-	// result = "FUNCIONA ";
 	
+	// result = "";
 	// test = ft_append(fd2, result);
+	// // test = ft_strjoin("hola como estas", result);
 	// printf("PRUEBA APPEND:\n%s", test);	//FUNCIONA
 	// printf("\n");
 

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   coments_sin_norma.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 16:18:06 by jvivas-g          #+#    #+#             */
-/*   Updated: 2023/10/09 17:04:05 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2023/10/09 16:57:09 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,57 +27,60 @@ char	*ft_get_line(char *str)
 	while (str[i] && str[i] != '\n')
 		i++;
 	result = (char *)calloc((i + 2), sizeof(char));
+	/* Reservamos memoria para la palabra hasta antes del \n */
 	if (!result)
 		return (NULL);
 	i = 0;
-	while (str[i] && str[i] != '\n')
+	while (str[i] && str[i] != '\n') /* Copiamos la pabra en el resultado */
 	{
 		result[i] = str[i];
 		i++;
 	}
-	if (str[i] == '\n')
+	if (str[i] == '\n') /* Porque me dice que debo poner el salto de linea incluido */
 	{
 		result[i] = str[i];
 		i++;
 	}
-	result[i] = '\0';
+	result[i] = '\0'; /* Siempre ponemos el ultimo bytes de la palabra el delimitador NULL */
 	return (result);
 }
 
+
 /**
- * @param fd Descriptor desde donde leer
+ * @param fd Descriptor desde donde leer para almacenar en nuestra variable auxiliar
  * @param stash Variable estatica para concatenar con o ue hagamos
  * @return String con las cadenas concatenadas
 */
 char	*ft_append(int fd, char *stash)
 {
-	char	aux[BUFFER_SIZE + 1];
-	int		read_bytes;
-
+	char aux[BUFFER_SIZE + 1]; /* Variable para almacenar la lectura */
+	int read_bytes; /* Me devuelve el resultado de cuántos bytes ha leído */
+	
 	read_bytes = 1;
-	if (!stash)
-	{
-		stash = ft_strjoin("", "");
+	if (!stash) {
+		stash = ft_strjoin("", "");  /* Inicializa stash como cadena vacía */
 		if (!stash)
 			return (NULL);
 	}
 	while (!ft_strchr(aux, '\n') && read_bytes)
 	{
 		read_bytes = read(fd, aux, BUFFER_SIZE);
-		if (read_bytes == -1)
+		if (read_bytes == -1) {
 			return (NULL);
+		}
 		aux[read_bytes] = '\0';
 		stash = ft_strjoin(stash, aux);
 	}
+	// printf("%s\n", stash);
 	return (stash);
 }
 
-char	*ft_move_start(char *stash)
-{
-	char	*result;
-	int		i;
-	int		j;
 
+char	*ft_move_start(char *stash) {
+	int	i;
+	int j;
+	char	*result;
+	
 	i = 0;
 	while (stash[i] && stash[i] != '\n')
 		i++;
@@ -108,15 +111,15 @@ char	*ft_move_start(char *stash)
 */
 char	*get_next_line(int fd)
 {
-	char		*line;
-	static char	*stash;
+    char    *line;      /* Linea que vamos a devolver */
+    static char *stash; /* Variable en la que almacenaremos lo del buffer de read */
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
-		return (NULL);
+    if (fd < 0 || BUFFER_SIZE <= 0) /* Comprobamos fichero abierto correctamente y bs postivo para tener un minimo d lineas a leer */
+        return (NULL);
 	stash = ft_append(fd, stash);
 	if (!stash)
 		return (NULL);
-	line = ft_get_line(stash);
+	line = ft_get_line(stash); /* Me duvuelve la linea hasya el \n */
 	stash = ft_move_start(stash);
-	return (line);
+    return (line);
 }
