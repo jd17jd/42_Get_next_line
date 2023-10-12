@@ -6,7 +6,7 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 16:18:06 by jvivas-g          #+#    #+#             */
-/*   Updated: 2023/10/09 17:04:05 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2023/10/12 14:11:37 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,11 @@ char	*ft_append(int fd, char *stash)
 	return (stash);
 }
 
-char	*ft_move_start(char *stash)
+/**
+ * @param stash Variable estatica que modificaremos moviendo su puntero
+ * @return String con el nuevo vector despues del /n
+*/
+char	*ft_new_start(char *stash)
 {
 	char	*result;
 	int		i;
@@ -117,6 +121,6 @@ char	*get_next_line(int fd)
 	if (!stash)
 		return (NULL);
 	line = ft_get_line(stash);
-	stash = ft_move_start(stash);
+	stash = ft_new_start(stash);
 	return (line);
 }
