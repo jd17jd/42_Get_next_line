@@ -6,22 +6,28 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 13:39:56 by jvivas-g          #+#    #+#             */
-/*   Updated: 2023/10/17 02:28:59 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2023/10/17 12:02:32 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h> /* Para poder usar size_t y NULL */
 
-void	ft_bzero(void *s, size_t n)
+/**
+ * Writes "n" zero bytes starting at "str".
+ * If "n" is zero, the function does nothing. 
+ * @param str String to be filled
+ * @param n Number of bytes to zero
+*/
+void	ft_bzero(void *str, size_t n)
 {
-	char	*str;
+	char	*res;
 	size_t	i;
 
-	str = (char *)s;
+	res = (char *)str;
 	i = 0;
 	while (i < n)
 	{
-		str[i] = '\0';
+		res[i] = '\0';
 		i++;
 	}
 }
@@ -41,7 +47,7 @@ void	*ft_calloc(size_t count, size_t size)
 	res = malloc(count * size);
 	if (!res)
 		return (NULL);
-	ft_bzero(res, size * count);
+	ft_bzero(res, count * size);
 	return (res);
 }
 
@@ -75,7 +81,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	i = 0;
 	j = 0;
-	res = (char *)calloc((ft_strlen(s1) + ft_strlen(s2) + 1),  sizeof(char)); //OJO
+	res = (char *)ft_calloc((ft_strlen(s1) + ft_strlen(s2) + 1),  sizeof(char)); //OJO
 	if (!res)
 		return (NULL);
 	while (s1[i])

@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   get_next_line_utils_menosErrores.c                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 13:39:56 by jvivas-g          #+#    #+#             */
-/*   Updated: 2023/10/17 02:16:29 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2023/10/17 10:24:20 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h> /* Para poder usar size_t y NULL */
 
-void	ft_bzero(void *s, size_t n)
+/**
+ * Writes "n" zero bytes starting at "str".
+ * If "n" is zero, the function does nothing. 
+ * @param str String to be filled
+ * @param n Number of bytes to zero
+*/
+void	ft_bzero(void *str, size_t n)
 {
-	char	*str;
+	char	*res;
 	size_t	i;
 
-	str = (char *)s;
+	res = (char *)str;
 	i = 0;
 	while (i < n)
 	{
-		str[i] = '\0';
+		res[i] = '\0';
 		i++;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 16:18:06 by jvivas-g          #+#    #+#             */
-/*   Updated: 2023/10/17 12:11:53 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2023/10/17 02:30:48 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,10 @@ char	*ft_get_line(char *str)
 		return (NULL);
 	while (str[i] && str[i] != '\n')
 		i++;
-	result = (char *)ft_calloc((i + 2), sizeof(char)); //OJO
+	if (!str[i])
+		result = (char *)calloc((i + 1), sizeof(char)); //OJO
+	else if (str[i] == '\n')
+		result = (char *)calloc((i + 2), sizeof(char)); //OJO
 	if (!result)
 		return (NULL);
 	i = 0;
@@ -56,7 +59,7 @@ char	*ft_append(int fd, char *stash)
 
 	read_bytes = 1;
 	if (!stash)
-		stash = "";
+		stash = ft_strjoin("", ""); // diferencia con stash = "";
 	while (!ft_strchr(aux, '\n') && read_bytes)
 	{
 		read_bytes = read(fd, aux, BUFFER_SIZE);
@@ -88,7 +91,7 @@ char	*ft_new_start(char *stash)
 	}
 	if (stash[i] == '\n')
 		i++;
-	result = (char *)ft_calloc(1 + ft_strlen(stash) - i, sizeof(char)); //OJO
+	result = (char *)calloc(1 + ft_strlen(stash) - i, sizeof(char)); //OJO
 	if (!result)
 		return (NULL);
 	j = 0;
