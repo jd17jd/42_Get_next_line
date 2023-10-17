@@ -6,7 +6,7 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 16:44:04 by jvivas-g          #+#    #+#             */
-/*   Updated: 2023/10/12 13:46:50 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2023/10/16 23:21:48 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,68 +15,82 @@
 
 int main() {
     char	*line; /* Buffer en el que guardamnos la linea resultado de nuestra funcion final */
-    int		i; /* Contador por el que iteraremos nuestro fichero */
+    // int		i; /* Contador por el que iteraremos nuestro fichero */
     int		fd1; 
     int		fd2;
     int		fd3;
 	int		fd4;
 	
-	//fd1 = open("/Users/jvivas-g/Documents/2. GNL/pruebas/prueba1.txt", O_RDONLY);
-	fd1 = open("/Users/juandiegovivasguevara/42/42_GNL/pruebas/prueba1.txt", O_RDONLY);
+	fd1 = open("/Users/jvivas-g/Documents/2. GNL/pruebas/prueba1.txt", O_RDONLY);
+	// fd1 = open("/Users/juandiegovivasguevara/42/42_GNL/pruebas/prueba1.txt", O_RDONLY);
 	if (fd1 == -1) printf("Error al abrir el fichero 'pruebas1.txt'\n"); /* El fichero no existe o no se puede abrir */
 	else { printf("fichero 'pruebas1.txt' abierto satisfactoriamente\n"); }
 
-	//fd2 = open("/Users/jvivas-g/Documents/2. GNL/pruebas/prueba2.txt", O_RDONLY);
-	fd2 = open("/Users/juandiegovivasguevara/42/42_GNL/pruebas/prueba2.txt", O_RDONLY);
+	fd2 = open("/Users/jvivas-g/Documents/2. GNL/pruebas/prueba2.txt", O_RDONLY);
+	// fd2 = open("/Users/juandiegovivasguevara/42/42_GNL/pruebas/prueba2.txt", O_RDONLY);
 	if (fd2 == -1) printf("Error al abrir el fichero 'pruebas2.txt'\n");
 	else { printf("fichero 'pruebas2.txt' abierto satisfactoriamente\n"); }
 
-	//fd3 = open("/Users/jvivas-g/Documents/2. GNL/pruebas/prueba3.txt", O_RDONLY);
-	fd3 = open("/Users/juandiegovivasguevara/42/42_GNL/pruebas/prueba3.txt", O_RDONLY);
+	fd3 = open("/Users/jvivas-g/Documents/2. GNL/pruebas/prueba3.txt", O_RDONLY);
+	// fd3 = open("/Users/juandiegovivasguevara/42/42_GNL/pruebas/prueba3.txt", O_RDONLY);
 	if (fd3 == -1) printf("Error al abrir el fichero 'pruebas3.txt'\n");
 	else { printf("fichero 'pruebas3.txt' abierto satisfactoriamente\n"); }
 
-	fd4 = open("/Users/juandiegovivasguevara/42/42_GNL/pruebas/prueba4.txt", O_RDONLY);
+	fd4 = open("/Users/jvivas-g/Documents/2. GNL/pruebas/prueba4.txt", O_RDONLY);
+	// fd4 = open("/Users/juandiegovivasguevara/42/42_GNL/pruebas/prueba4.txt", O_RDONLY);
 	if (fd4 == -1) printf("Error al abrir el fichero 'pruebas3.txt'\n");
 	else { printf("fichero 'pruebas3.txt' abierto satisfactoriamente\n"); }
 	printf("\n");
 
 	/* PRUEBAS DE IMPRESINES: */
-	line = get_next_line(fd1);
-	while (line != 0) {
-		printf("%s", line);
+
+	while (1) {
 		line = get_next_line(fd1);
+		if (!line)
+			break ;
+		printf("%s", line);
 	}
 	printf("\n");
 	printf("\n");
 
-	line = get_next_line(fd2);
-	while (line != 0) {
-		printf("%s", line);
+	while (1) {
 		line = get_next_line(fd2);
-	}
-	printf("\n");
-	printf("\n");
-
-	line = get_next_line(fd3);
-	while (line != 0) {
+		if (!line)
+			break ;
 		printf("%s", line);
-		line = get_next_line(fd3);
-	}
-	printf("\n");
-	printf("\n");
-
-	line = get_next_line(fd4);
-	while (line != 0) {
-		printf("%s", line);
-		line = get_next_line(fd4);
 	}
 	printf("\n");
 	printf("\n");
 	
+	while (1) {
+		line = get_next_line(fd3);
+		if (!line)
+			break ;
+		printf("%s", line);
+	}
+	printf("\n");
+	printf("\n");
+	
+	while (1) {
+		line = get_next_line(fd4);
+		if (!line)
+			break ;
+		printf("%s", line);
+	}
+	printf("\n");
+	printf("\n");
+	
+	// line = get_next_line(fd4);
+	// while (line != 0) {
+	// 	printf("%s", line);
+	// 	line = get_next_line(fd4);
+	// }
+	// printf("\n");
+	// printf("\n");
+	
 	// char	buf[100]; //Buffer donde se va a guardar lo leido
-	char	*result;
-	char 	*test;
+	// char	*result;
+	// char 	*test;
 	//char	*linea;
 	// ssize_t	n_bytes;
 	
