@@ -6,7 +6,7 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 16:18:24 by jvivas-g          #+#    #+#             */
-/*   Updated: 2023/10/17 02:12:54 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2023/10/17 12:49:21 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,9 @@
 
 # include <unistd.h>
 # include <stdlib.h>
-# include <stdio.h>
+# include <stdio.h> //OJO
 
-/* BUFFER_SIZE representa la cantidad de bytes que se leerán o se almacenarán en cada iteración de la función get_next_line().
-Determina cuántos caracteres se leerán en cada llamada a la función para construir una línea completa. */
+/* BUFFER_SIZE = Bytes a leer o almacenar en cada iteración de get_next_line() */
 #ifndef BUFFER_SIZE
 # define BUFFER_SIZE 1
 #endif
