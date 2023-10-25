@@ -6,7 +6,7 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 16:18:06 by jvivas-g          #+#    #+#             */
-/*   Updated: 2023/10/19 23:36:24 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2023/10/25 18:12:27 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ char	*ft_new_start(char *stash)
 	}
 	if (stash[i] == '\n')
 		i++;
-	result = (char *)ft_calloc(1 + ft_strlen(stash) - i, sizeof(char)); //OJO
+	result = (char *)calloc(1 + ft_strlen(stash) - i, sizeof(char)); //OJO
 	if (!result)
 		return (NULL);
 	j = 0;

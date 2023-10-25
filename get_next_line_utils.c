@@ -6,7 +6,7 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 13:39:56 by jvivas-g          #+#    #+#             */
-/*   Updated: 2023/10/19 23:46:46 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2023/10/25 18:51:15 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ char	*ft_strjoin(char *s1, char *s2)
 
 	i = 0;
 	j = 0;
-	res = (char *)ft_calloc((ft_strlen(s1) + ft_strlen(s2) + 1),  sizeof(char)); //OJO
+	res = (char *)calloc((ft_strlen(s1) + ft_strlen(s2) + 1),  sizeof(char)); //OJO
 	if (!res)
 		return (NULL);
 	while (s1[i])
