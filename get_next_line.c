@@ -6,7 +6,7 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 16:18:06 by jvivas-g          #+#    #+#             */
-/*   Updated: 2023/10/25 18:12:27 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2023/10/29 12:02:24 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,9 @@ char	*ft_get_line(char *str)
 		return (NULL);
 	while (str[i] && str[i] != '\n')
 		i++;
-	result = (char *)ft_calloc((i + 2), sizeof(char));
+	if (str[i] == '\n')
+		i++;
+	result = (char *)ft_calloc((i + 1), sizeof(char));
 	if (!result)
 		return (NULL);
 	i = 0;
@@ -53,17 +55,23 @@ char	*ft_append(int fd, char *stash)
 {
 	char	aux[BUFFER_SIZE + 1];
 	int		read_bytes;
-
+	char	*aux2;
+	
 	read_bytes = 1;
+	ft_bzero(aux, BUFFER_SIZE + 1);
 	if (!stash)
 		stash = ft_strjoin("", "");
 	while (!ft_strchr(aux, '\n') && read_bytes)
 	{
 		read_bytes = read(fd, aux, BUFFER_SIZE);
-		if (read_bytes == -1)
-			return (NULL);
+		if (read_bytes == -1) {
+			ft_bzero(stash, 1);
+			break ;
+		}
 		aux[read_bytes] = '\0';
+		aux2 = stash;
 		stash = ft_strjoin(stash, aux);
+		free(aux2);
 	}
 	return (stash);
 }
@@ -75,10 +83,12 @@ char	*ft_append(int fd, char *stash)
 char	*ft_new_start(char *stash)
 {
 	char	*result;
+	char	*aux;
 	int		i;
 	int		j;
 
 	i = 0;
+	aux = stash;
 	while (stash[i] && stash[i] != '\n')
 		i++;
 	if (!stash[i])
@@ -88,7 +98,7 @@ char	*ft_new_start(char *stash)
 	}
 	if (stash[i] == '\n')
 		i++;
-	result = (char *)calloc(1 + ft_strlen(stash) - i, sizeof(char)); //OJO
+	result = (char *)ft_calloc(1 + ft_strlen(stash) - i, sizeof(char)); //OJO
 	if (!result)
 		return (NULL);
 	j = 0;
@@ -97,6 +107,7 @@ char	*ft_new_start(char *stash)
 		result[j] = stash[i + j];
 		j++;
 	}
+	free(aux);
 	return (result);
 }
 
@@ -111,10 +122,10 @@ char	*get_next_line(int fd)
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	stash = ft_append(fd, stash);
+	stash = ft_append(fd, stash); //Nuevo puntero en stash
 	if (!stash)
 		return (NULL);
-	line = ft_get_line(stash);
-	stash = ft_new_start(stash);
+	line = ft_get_line(stash); //No modifica la memoria de la stash anterior
+	stash = ft_new_start(stash); //Nuevo puntero stash
 	return (line);
 }
