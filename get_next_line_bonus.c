@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/30 16:18:06 by jvivas-g          #+#    #+#             */
-/*   Updated: 2023/10/30 19:01:46 by jvivas-g         ###   ########.fr       */
+/*   Created: 2023/10/30 19:06:55 by jvivas-g          #+#    #+#             */
+/*   Updated: 2023/10/30 19:20:54 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,14 +122,14 @@ char	*ft_new_start(char *stash)
 char	*get_next_line(int fd)
 {
 	char		*line;
-	static char	*stash;
+	static char	*stash[1024];
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	stash = ft_append(fd, stash);
-	if (!stash)
+	stash[fd] = ft_append(fd, stash[fd]);
+	if (!stash[fd])
 		return (NULL);
-	line = ft_get_line(stash);
-	stash = ft_new_start(stash);
+	line = ft_get_line(stash[fd]);
+	stash[fd] = ft_new_start(stash[fd]);
 	return (line);
 }

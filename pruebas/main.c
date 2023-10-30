@@ -6,7 +6,7 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 16:44:04 by jvivas-g          #+#    #+#             */
-/*   Updated: 2023/10/25 13:02:09 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2023/10/30 19:02:21 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,23 +21,23 @@ int main() {
     int		fd3;
 	int		fd4;
 	
-	// fd1 = open("/Users/jvivas-g/Documents/2. GNL/pruebas/prueba1.txt", O_RDONLY);
-	fd1 = open("/Users/juandiegovivasguevara/42/42_GNL/pruebas/prueba1.txt", O_RDONLY);
+	fd1 = open("/Users/jvivas-g/Documents/2. GNL/pruebas/prueba1.txt", O_RDONLY);
+	// fd1 = open("/Users/juandiegovivasguevara/42/42_GNL/pruebas/prueba1.txt", O_RDONLY);
 	if (fd1 == -1) printf("Error al abrir el fichero 'pruebas1.txt'\n"); /* El fichero no existe o no se puede abrir */
 	else { printf("fichero 'pruebas1.txt' abierto satisfactoriamente\n"); }
 
-	// fd2 = open("/Users/jvivas-g/Documents/2. GNL/pruebas/prueba2.txt", O_RDONLY);
-	fd2 = open("/Users/juandiegovivasguevara/42/42_GNL/pruebas/prueba2.txt", O_RDONLY);
+	fd2 = open("/Users/jvivas-g/Documents/2. GNL/pruebas/prueba2.txt", O_RDONLY);
+	// fd2 = open("/Users/juandiegovivasguevara/42/42_GNL/pruebas/prueba2.txt", O_RDONLY);
 	if (fd2 == -1) printf("Error al abrir el fichero 'pruebas2.txt'\n");
 	else { printf("fichero 'pruebas2.txt' abierto satisfactoriamente\n"); }
 
-	// fd3 = open("/Users/jvivas-g/Documents/2. GNL/pruebas/prueba3.txt", O_RDONLY);
-	fd3 = open("/Users/juandiegovivasguevara/42/42_GNL/pruebas/prueba3.txt", O_RDONLY);
+	fd3 = open("/Users/jvivas-g/Documents/2. GNL/pruebas/prueba3.txt", O_RDONLY);
+	// fd3 = open("/Users/juandiegovivasguevara/42/42_GNL/pruebas/prueba3.txt", O_RDONLY);
 	if (fd3 == -1) printf("Error al abrir el fichero 'pruebas3.txt'\n");
 	else { printf("fichero 'pruebas3.txt' abierto satisfactoriamente\n"); }
 
-	// fd4 = open("/Users/jvivas-g/Documents/2. GNL/pruebas/prueba4.txt", O_RDONLY);
-	fd4 = open("/Users/juandiegovivasguevara/42/42_GNL/pruebas/prueba4.txt", O_RDONLY);
+	fd4 = open("/Users/jvivas-g/Documents/2. GNL/pruebas/prueba4.txt", O_RDONLY);
+	// fd4 = open("/Users/juandiegovivasguevara/42/42_GNL/pruebas/prueba4.txt", O_RDONLY);
 	if (fd4 == -1) printf("Error al abrir el fichero 'pruebas3.txt'\n");
 	else { printf("fichero 'pruebas3.txt' abierto satisfactoriamente\n"); }
 	printf("\n");
