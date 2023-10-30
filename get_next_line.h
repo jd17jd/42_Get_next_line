@@ -6,7 +6,7 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 16:18:24 by jvivas-g          #+#    #+#             */
-/*   Updated: 2023/10/29 12:03:33 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2023/10/30 11:50:53 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,14 @@
 
 # include <unistd.h>
 # include <stdlib.h>
-# include <stdio.h> //OJO
 
-/* BUFFER_SIZE = Bytes a leer o almacenar en cada iteración de get_next_line() */
-#ifndef BUFFER_SIZE
-# define BUFFER_SIZE 1
-#endif
+/* BUFFER_SIZE = Bytes a leer/almacenar en cada iteración de get_next_line() */
 
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 1
+# endif
 
-char    *ft_get_line(char *str);
+char	*ft_get_line(char *str);
 char	*ft_append(int fd, char *stash);
 char	*ft_move_start(char *stash);
 char	*get_next_line(int fd);
