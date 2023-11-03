@@ -2,8 +2,8 @@
 
 In this project we have learned to create a function that reades lines given a file descriptor in C and compiling it with a variable buffer size.
 In order to make this we have reviewed the concepts of:
-- static variables
-- the difference between local & global variables
+- Static variables
+- The difference between local & global variables
 - Services such as read(), open(), close().
 
-And also have checked the use of memory allocation and how to free it properly using malloc(), calloc() and free().
+Also, have checked the use of memory allocation and how to free it properly using malloc(), calloc() and free().
