@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_bonus.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: jvivas-g <jvivas-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 19:06:50 by jvivas-g          #+#    #+#             */
-/*   Updated: 2023/10/30 19:12:16 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/09/13 04:49:32 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 
-/* BUFFER_SIZE = Bytes a leer/almacenar en cada iteración de get_next_line() */
+/* BUFFER_SIZE = Bytes to read/write in each iteration of get_next_line() */
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 1

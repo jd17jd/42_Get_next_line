@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: jvivas-g <jvivas-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 16:18:24 by jvivas-g          #+#    #+#             */
-/*   Updated: 2023/10/30 19:02:54 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/09/13 04:57:48 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 
-/* BUFFER_SIZE = Bytes a leer/almacenar en cada iteración de get_next_line() */
+/* BUFFER_SIZE = Bytes to read/write in each iteration of get_next_line() */
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 1
@@ -27,7 +27,7 @@ char	*ft_append(int fd, char *stash);
 char	*ft_move_start(char *stash);
 char	*get_next_line(int fd);
 
-/* FUNCIONES AUXILIARES */
+/* AUX FUNCTIONS */
 void	ft_bzero(void *s, size_t n);
 void	*ft_calloc(size_t count, size_t size);
 size_t	ft_strlen(const char *s);

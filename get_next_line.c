@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: jvivas-g <jvivas-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 16:18:06 by jvivas-g          #+#    #+#             */
-/*   Updated: 2023/10/30 19:01:46 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/09/13 04:55:38 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
 /**
- * @param str String de caracteres 
- * @return Me devuelve una linea hasta q encuentre el salto de linea
+ * @param str Character string
+ * @return A line until a newline char
 */
 char	*ft_get_line(char *str)
 {
@@ -42,9 +42,9 @@ char	*ft_get_line(char *str)
 }
 
 /**
- * @param fd Descriptor desde donde leer
+ * @param fd Descriptor where to start to read from
  * @param stash Variable estatica para concatenar con o ue hagamos
- * @return String con las cadenas concatenadas
+ * @return String with the concatenated strings
 */
 char	*ft_append(int fd, char *stash)
 {
@@ -73,7 +73,7 @@ char	*ft_append(int fd, char *stash)
 }
 
 /**
- * Aux para lineas de ft_new_start
+ * Aux for lines of ft_new_start
 */
 void	aux_strcat(int i, int j, char *stash, char *result)
 {
@@ -85,8 +85,9 @@ void	aux_strcat(int i, int j, char *stash, char *result)
 }
 
 /**
- * @param stash Variable estatica que modificaremos moviendo su puntero
- * @return String con el nuevo vector despues del /n
+ * @param stash Static variable that will get modified by 
+ * moving their pointer
+ * @return String with the new vector after the newline char
 */
 char	*ft_new_start(char *stash)
 {
